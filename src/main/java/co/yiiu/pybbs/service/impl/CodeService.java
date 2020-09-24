@@ -4,6 +4,7 @@ import co.yiiu.pybbs.config.service.EmailService;
 import co.yiiu.pybbs.config.service.SmsService;
 import co.yiiu.pybbs.mapper.CodeMapper;
 import co.yiiu.pybbs.model.Code;
+import co.yiiu.pybbs.model.Comment;
 import co.yiiu.pybbs.service.ICodeService;
 import co.yiiu.pybbs.util.DateUtil;
 import co.yiiu.pybbs.util.StringUtil;
@@ -120,5 +121,12 @@ public class CodeService implements ICodeService {
     @Override
     public void update(Code code) {
         codeMapper.updateById(code);
+    }
+
+    @Override
+    public void deleteByUserId(Integer userId) {
+        QueryWrapper<Code> wrapper = new QueryWrapper<>();
+        wrapper.lambda().eq(Code::getUserId, userId);
+        codeMapper.delete(wrapper);
     }
 }

@@ -23,14 +23,14 @@
                                        placeholder="用户名">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="telegramName" class="col-sm-2 control-label">Telegram用户名</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="telegramName" name="telegramName"
-                                       value="${user.telegramName!}"
-                                       placeholder="Telegram用户名">
-                            </div>
-                        </div>
+<#--                        <div class="form-group row">-->
+<#--                            <label for="telegramName" class="col-sm-2 control-label">Telegram用户名</label>-->
+<#--                            <div class="col-sm-10">-->
+<#--                                <input type="text" class="form-control" id="telegramName" name="telegramName"-->
+<#--                                       value="${user.telegramName!}"-->
+<#--                                       placeholder="Telegram用户名">-->
+<#--                            </div>-->
+<#--                        </div>-->
                         <div class="form-group row">
                             <label for="website" class="col-sm-2 control-label">个人主页</label>
                             <div class="col-sm-10">
@@ -151,7 +151,8 @@
         </div>
         <div class="col-md-3 hidden-xs">
             <#include "../components/user_info.ftl"/>
-            <#include "../components/token.ftl"/>
+            <#--显示token信息-->
+           <#-- <#include "../components/token.ftl"/>-->
         </div>
     </div>
     <script>

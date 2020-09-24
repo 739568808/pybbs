@@ -224,6 +224,8 @@ public class UserService implements IUserService {
         commentService.deleteByUserId(id);
         // 删除redis里的缓存
         User user = this.selectById(id);
+
+        codeService.deleteByUserId(id);
         this.delRedisUser(user);
         // 删除用户本身
         userMapper.deleteById(id);

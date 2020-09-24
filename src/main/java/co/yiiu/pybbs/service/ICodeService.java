@@ -26,4 +26,6 @@ public interface ICodeService {
     boolean sendSms(String mobile);
 
     void update(Code code);
+
+    void deleteByUserId(Integer id);
 }

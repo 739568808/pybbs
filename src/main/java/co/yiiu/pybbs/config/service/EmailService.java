@@ -46,6 +46,9 @@ public class EmailService implements BaseService<Session> {
         properties.setProperty("mail.host", host);
         //是否进行权限验证。
         properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.port", "465");
+        properties.setProperty("mail.smtp.ssl.enable", "true");
+        properties.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         //0.2确定权限（账号和密码）
         Authenticator authenticator = new Authenticator() {
             @Override
@@ -93,6 +96,7 @@ public class EmailService implements BaseService<Session> {
             //设置编码，防止发送的内容中文乱码。
             message.setContent(content, "text/html;charset=UTF-8");
             //3发送消息
+
             Transport.send(message);
             return true;
         } catch (MessagingException e) {
